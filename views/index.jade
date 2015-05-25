@@ -1,0 +1,41 @@
+extends layout
+
+block scripts
+  // bind to the data fields defined in mixin
+  script(src='/javascripts/chatroom.js')
+
+block content
+  div(class="wrap")
+    div(class="container-fluid")
+      h1 Wolfpack Chat Room
+
+      #message_area
+
+      div(class="push")
+      button(id="btn_auto_uname_prompt", class="btn hidden",
+            data-toggle="modal", data-target="#myModal") Launch
+
+      div(class="modal fade", id="myModal",
+            tabindex="-1" role="dialog", aria-labelledby="myModalLabel",
+            aria-hidden="true" data-keyboard="false" data-backdrop="static")
+        div(class="modal-dialog")
+          div(class="modal-content")
+            div(class="modal-header")
+              h4(class="modal-title") Choose a username
+            div(class="modal-body")
+              div(class="form-group")
+                label(for="exampleInputEmail1") Chat room username
+                input(type="text", class="form-control", id="input_username", placeholder="Enter username", aria-describedby="helpBlock")
+                span(id="helpBlock", class="help-block")
+            div(class="modal-footer")
+              button(class="btn btn-default hidden", data-dismiss="modal", id="btn_close_modal") Close
+              button(id="btn_send_uname", class="btn btn-primary") Send username
+
+  div(class="footer")
+    div(class="container-fluid")
+      div(class="row")
+        div(class="col-xs-8 col-sm-9")
+          input(type="text" id="message-box" class="form-control input-lg" placeholder="Enter a message here..." rows="3")
+        div(class="col-xs-4 col-sm-3")
+          button(id="send-message" class="btn btn-primary btn-lg btn-block") Send Message
+
